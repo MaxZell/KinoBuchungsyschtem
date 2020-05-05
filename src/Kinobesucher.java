@@ -1,6 +1,5 @@
 public class Kinobesucher {
-    public void save(){
-
+    public Kinobesucher(){
     }
 
     public void reservieren(){

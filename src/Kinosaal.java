@@ -1,48 +1,31 @@
 import static java.lang.System.out;
 
 public class Kinosaal {
+    int anzahlReihe = 1;
+    int anzahlSitze = 1;
+    int GewuehnschteReihe = 5; //Reihen die generiert werden sollten
+    int GewuehnschtePlaetze = 5; //Plätze die generiert werden sollten
 
-    static Object[][] kinosaal={
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true},
-            {true, true, true, true, true, true, true, true, true, true}};
-
-    public void printKinosaal(){
-        int ynum = 1;
-        System.out.println("                                    Bildschirm");
-        System.out.println("                                ------------------");
-        System.out.println("  1       2       3       4       5       6       7       8       9      10");
-        for (Object[] strings : kinosaal) {    //search by x
-            for (Object string : strings) {   //search by y
-
-                System.out.print(string + "\t");
-            }
-            String fnumString = String.valueOf(ynum);
-            System.out.print(fnumString);
-            System.out.println();
-            ynum++;
-        }
+    public Kinosaal(int RN, int PN) {
     }
 
-
-    //for later
     public void Kinosaalgenerator() {
-        int anzahlReihe = 1;
-        int anzahlSitze = 1;
-        int GewuehnschteReihe = 5; //Reihen die generiert werden sollten
-        int GewuehnschtePlaetze = 5; //Plätze die generiert werden sollten
+        Platz PZ = Platz.getInstance();
+        System.out.print("Kinosaalrunner geöffnet " + anzahlSitze);
 
         while (anzahlReihe <= GewuehnschteReihe){
             while (anzahlSitze <= GewuehnschtePlaetze){
                 out.println("Anzahl Sitze ergänzt");
-                //*********
+
+                PZ.setGanzerPlatz(anzahlReihe, anzahlSitze, true);
+
+                //print array
+//                for(int i = 0 ; i < 3 ; i++){
+//                    for(int j = 0 ; j < 2; j++)
+//                    {
+//                        System.out.print(sitze[i][j] + " " );
+//                    }
+
                 out.println("\n");
                 anzahlSitze++;
             }
@@ -52,3 +35,19 @@ public class Kinosaal {
         out.print("ready");
     }
 }
+
+//    public void Kinosaalgenerator() {
+//        Platz PZ = Platz.getInstance();
+//        System.out.print("Kinosaalrunner geöffnet " + anzahlSitze);
+//
+//        while (anzahlReihe<=GewuehnschteReihe){
+//            while (anzahlSitze<=GewuehnschtePlaetze){
+//                out.println("Anzahl Sitze ergänzt");
+//                PZ.setGanzerPlatz(anzahlReihe, anzahlSitze, true);
+//                anzahlSitze++;
+//            }
+//            anzahlSitze=0;
+//            anzahlReihe++;
+//        }
+//        out.print("ready");
+//    }
