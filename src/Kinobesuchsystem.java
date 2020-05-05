@@ -13,6 +13,7 @@ public class Kinobesuchsystem {
     public int freie_Plaetze = 1; //Anzahl freie Plaetzen?
     public int freie_Reihen = 1;
 
+
     public void welcomeToKino(){
         out.println("Helzlich welcommen ins Kino!");
     }
@@ -55,7 +56,7 @@ public class Kinobesuchsystem {
 //            Platzreservierung PR = new Platzreservierung();
 //            PR.setReihe_PlatzNummer(RN, PN);
         }
-        catch(Exception  e){
+        catch(Exception e){
             out.println("Bitte, geben Sie ein Zahl");
             verwalten();
         }
