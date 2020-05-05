@@ -1,19 +1,19 @@
 public class Film {
     public final String filmName;
     public final String datum;
-    public final String zeit;
-//    public final String ort;  //Kinotheater adresse
+    public final String time;
     public final int saalnummer;
+    //for later
+//    public final String overview;
 
-    public Film(String filmName, String datum, int saalnummer){
-        //this.filmName = filmName;
-        //this.datum = datum;
-        //this.saalnummer = saalnummer;
+    public Film(String filmName, String datum, String time, int saalnummer){
 
-        //default film info
-        this.filmName = "Titantik";
-        this.datum = "22.04.2020";
-        this.zeit = "12:00 AM";
-        this.saalnummer = 1;
+        this.filmName = filmName;
+        this.datum = datum;
+        this.time = time;
+        this.saalnummer = saalnummer;
+    }
+    public String toString(){
+        return filmName + "\n" + datum + "\n" + time + "\n" + saalnummer + "\n";
     }
 }
