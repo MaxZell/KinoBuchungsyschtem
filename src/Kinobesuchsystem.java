@@ -4,40 +4,44 @@ import static java.lang.System.out;
 public class Kinobesuchsystem {
     public int PN;
     public int RN;
-    public int Film;
+    public int film;
     public Scanner uInput;
 
-    /**
-     * DELETE
-     * */
-    public int freie_Plaetze = 1; //Anzahl freie Plaetzen?
-    public int freie_Reihen = 1;
+    Kinosaal kinosaal = new Kinosaal();
+    public int freie_Plaetze = kinosaal.getCountOfFreePlaces();
+    Vorstellung vorstellung = new Vorstellung();
+    public int activeFilms = vorstellung.getCountOfFilms();
 
 
     public void welcomeToKino(){
         out.println("Helzlich welcommen ins Kino!");
     }
-    public void films(){
-        out.println("Es gibt solche Filmen: \n");
+
+    public String getUserEmail(){
+        out.println("Bitte geben Sie Ihren Email: \n");
+        return uInput.nextLine();
+    }
+
+    public int films(){
+        out.println("Es gibt solche Filmen:" + "(" + activeFilms + ")" + "\n");
         Vorstellung vorstellung = new Vorstellung();
         vorstellung.printFilms();
         out.println("Bitte geben Sie gewünschte Film(Nummer)");
-        Film = uInput.nextInt();
+        return film = uInput.nextInt();
     }
 
     public void kinosaal(){
-        Kinosaal kinosaal = new Kinosaal();
         kinosaal.printKinosaal();
     }
 
-    public void getRN(){
-        out.println("Wählen Sie eine Reihe aus " + "(" + "Freie Reihen: " + freie_Reihen + "): ");
-        RN = uInput.nextInt(); //Holt Reihennummer Liste
+    public int getRN(){
+        out.println("Wählen Sie eine Reihe aus " + "(" + "Freie Plaetze: " + freie_Plaetze + "): ");
+        return RN = uInput.nextInt(); //Holt Reihennummer Liste
     }
 
-    public void getPN(){
-        out.println("Reservieren Sie eine Platznummer " + "(" + "Freie Plaetze: " + freie_Plaetze + "): ");
-        PN = uInput.nextInt(); //Holt Platznummer Liste
+    public int getPN(){
+        out.println("Reservieren Sie eine Platznummer: ");
+        return PN = uInput.nextInt(); //Holt Platznummer Liste
     }
 
     public void verwalten(){
@@ -45,16 +49,17 @@ public class Kinobesuchsystem {
 
         try{
             welcomeToKino();
-            films();
+            String userEmail = getUserEmail();
+            int filmNum = films();
+            String filmData = vorstellung.getFilmName(filmNum);
             kinosaal();
-            getRN();
-            getPN();
-
-            /**
-             * DELETE
-             * */
-//            Platzreservierung PR = new Platzreservierung();
-//            PR.setReihe_PlatzNummer(RN, PN);
+            int uRN = getRN();
+            int uPN = getPN();
+            kinosaal.setPlace(uRN-1, uPN-1);
+            kinosaal();
+            Platzreservierung platzreservierung = new Platzreservierung();
+            //String userEmail, String filmData, int reihe, int plaetz
+            platzreservierung.saveBooking(userEmail, filmData, uRN, uPN);
         }
         catch(Exception e){
             out.println("Bitte, geben Sie ein Zahl");

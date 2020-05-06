@@ -14,6 +14,10 @@ public class Film {
         this.saalnummer = saalnummer;
     }
     public String toString(){
-        return filmName + "\n" + datum + "\n" + time + "\n" + saalnummer + "\n";
+        return "Titel: " + filmName + "\n" + "Datum: " + datum + "\n" + "Zeit: " +  time + "\n" + "Saalnummer: " +  saalnummer + "\n";
+    }
+
+    public String getFilmName(){
+        return filmName;
     }
 }

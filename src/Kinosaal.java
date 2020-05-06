@@ -1,6 +1,9 @@
 import static java.lang.System.out;
 
 public class Kinosaal {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
 
     static Object[][] kinosaal={
             {true, true, true, true, true, true, true, true, true, true},
@@ -21,8 +24,13 @@ public class Kinosaal {
         System.out.println("  1       2       3       4       5       6       7       8       9      10");
         for (Object[] strings : kinosaal) {    //search by x
             for (Object string : strings) {   //search by y
+                String colorS = String.valueOf(string);
+                if (colorS=="true"){
+                    System.out.print(ANSI_GREEN + string + "\t" + ANSI_RESET);
+                }else{
+                    System.out.print(ANSI_RED + string + "\t" + ANSI_RESET);
+                }
 
-                System.out.print(string + "\t");
             }
             String fnumString = String.valueOf(ynum);
             System.out.print(fnumString);
@@ -31,6 +39,22 @@ public class Kinosaal {
         }
     }
 
+    public int getCountOfFreePlaces(){
+        int placesCount = 0;
+        for (int i = 0; i < kinosaal.length; i++) {
+            for (int j = 0; j < kinosaal[i].length; j++) {
+                boolean myPlace = (boolean) kinosaal[i][j];
+                if(myPlace){
+                    placesCount++;
+                }
+            }
+        }
+        return placesCount;
+    }
+
+    public void setPlace(int col, int row){
+        kinosaal[col][row] = false;
+    }
 
     //for later
     public void Kinosaalgenerator() {

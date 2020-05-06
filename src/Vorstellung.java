@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Vorstellung {
-    ArrayList<Film> filmeList = new ArrayList<Film>();
+    private ArrayList<Film> filmeList = new ArrayList<Film>();
 
     //change for later -> generator
     public void createFilm(){
@@ -17,8 +17,22 @@ public class Vorstellung {
         int fnum = 1;
         for (Film film : filmeList){
             String fnumString = String.valueOf(fnum);
-            System.out.println(fnumString + ". " + film);
+            System.out.println(fnumString + ". \n" + film);
             fnum++;
         }
+    }
+
+    public String getFilmName(int filmNum){
+        String fData = String.valueOf(filmeList.get(filmNum));
+        return fData;
+    }
+
+    public int getCountOfFilms(){
+        createFilm();
+        int placesCount = 0;
+        for (Film film : filmeList) {
+            placesCount++;
+        }
+        return placesCount;
     }
 }
