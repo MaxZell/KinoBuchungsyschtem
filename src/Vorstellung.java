@@ -14,7 +14,7 @@ public class Vorstellung {
 
     public void printFilms(){
         createFilm();
-        int fnum = 1;
+        int fnum = 0;
         for (Film film : filmeList){
             String fnumString = String.valueOf(fnum);
             System.out.println(fnumString + ". \n" + film);
