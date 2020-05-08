@@ -7,12 +7,13 @@ public class Platzreservierung {
             FileWriter fstream = new FileWriter("order.txt",true);
             BufferedWriter out = new BufferedWriter(fstream);
 //            out.write(new java.util.Date() + "\n" + "User Email: " + userEmail + "\n" + filmData + "Reihe: " + reihe + "\n" + "Plaetz Nummer: " + plaetz + "\n" + "\n");//user data
+            //to txt
             out.write(new java.util.Date() + "\n");
             out.write("User Email: " + userEmail +"\n");
             out.write(filmData);
             out.write("Reihe: " + reihe + "\n");
             out.write("Plaetz Nummer: " + plaetz + "\n");
-            out.write(" ");
+            out.newLine();
             out.close();
             System.out.println("Successfully wrote to the file.");
         } catch (Exception e) {

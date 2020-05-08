@@ -66,7 +66,7 @@ public class Kinosaal {
         while (anzahlReihe <= GewuehnschteReihe){
             while (anzahlSitze <= GewuehnschtePlaetze){
                 out.println("Anzahl Sitze ergänzt");
-                //*********
+                //********* add to array
                 out.println("\n");
                 anzahlSitze++;
             }

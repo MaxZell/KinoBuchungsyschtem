@@ -5,8 +5,8 @@ public class Vorstellung {
 
     //change for later -> generator
     public void createFilm(){
-        Film Titanik = new Film("Titanik", "22.04.2020", "12:00 AM", 1);
-        Film Terminator = new Film("Terminator", "23.04.2020", "12:00 PM", 1);
+        Film Titanik = new Film("Titanik", "22.06.2020", "12:00 AM", 1);
+        Film Terminator = new Film("Terminator", "23.06.2020", "12:00 PM", 1);
 
         filmeList.add(Titanik);
         filmeList.add(Terminator);
